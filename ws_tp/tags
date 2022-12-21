@@ -1,0 +1,79 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/mir/workspace/thread_pools/work_stealing_thread_pool/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	/50f60b84/
+DEFAULT_ELM	seq_ring_task.c	/^#define DEFAULT_ELM /;"	d	file:
+NOTIFICATION_QUEUE_THREAD_POOL_H	notification_queue.h	/^#define NOTIFICATION_QUEUE_THREAD_POOL_H /;"	d
+SEQ_CIRCULAR_BUFFER_TASK_H	seq_ring_task.h	/^#define SEQ_CIRCULAR_BUFFER_TASK_H$/;"	d
+TASK_MANAGER_WORKING_STEALING_H	task_manager.h	/^#define TASK_MANAGER_WORKING_STEALING_H /;"	d
+TASK_WORK_STEALING_THREAD_POOL_H	task.h	/^#define TASK_WORK_STEALING_THREAD_POOL_H /;"	d
+__anon0d38083b0108	main.c	/^typedef struct{$/;"	s	file:
+__anon1d9193ae0108	task.h	/^typedef struct{$/;"	s
+__anon4ebab0a30108	task_manager.c	/^typedef struct{$/;"	s	file:
+__anon4ebab0a80108	task_manager.h	/^typedef struct{$/;"	s
+__anon6b9af2860108	notification_queue.h	/^typedef struct {$/;"	s
+__anon6b9af2860208	notification_queue.h	/^typedef struct{$/;"	s
+a	main.c	/^  int64_t a;$/;"	m	struct:__anon0d38083b0108	typeref:typename:int64_t	file:
+args	task.h	/^  void* args;$/;"	m	struct:__anon1d9193ae0108	typeref:typename:void *
+array	seq_ring_task.h	/^  task_t* array;$/;"	m	struct:seq_ring_buf_s	typeref:typename:task_t *
+async_task_manager	task_manager.c	/^void async_task_manager(task_manager_t* man, task_t t)$/;"	f	typeref:typename:void
+cap	seq_ring_task.h	/^  size_t cap;$/;"	m	struct:seq_ring_buf_s	typeref:typename:size_t
+cv	notification_queue.h	/^  pthread_cond_t cv;$/;"	m	struct:__anon6b9af2860108	typeref:typename:pthread_cond_t
+do_work	main.c	/^void do_work(void* arg)$/;"	f	typeref:typename:void	file:
+done	notification_queue.h	/^  int done;$/;"	m	struct:__anon6b9af2860108	typeref:typename:int
+done_not_q	notification_queue.c	/^void done_not_q(not_q_t* q)$/;"	f	typeref:typename:void
+enlarge_buffer	seq_ring_task.c	/^void enlarge_buffer(seq_ring_task_t* r)$/;"	f	typeref:typename:void	file:
+free_not_q	notification_queue.c	/^void free_not_q(not_q_t* q, void (*clean)(task_t*) )$/;"	f	typeref:typename:void
+free_seq_ring_task	seq_ring_task.c	/^void free_seq_ring_task(seq_ring_task_t* r, seq_free_func fp)$/;"	f	typeref:typename:void
+free_task_manager	task_manager.c	/^void free_task_manager(task_manager_t* man, void (*clean)(task_t*))$/;"	f	typeref:typename:void
+full	seq_ring_task.c	/^bool full(seq_ring_task_t* r)$/;"	f	typeref:typename:bool	file:
+func	task.h	/^  void (*func)(void* args);$/;"	m	struct:__anon1d9193ae0108	typeref:typename:void (*)(void * args)
+head	seq_ring_task.h	/^  uint32_t head;$/;"	m	struct:seq_ring_buf_s	typeref:typename:uint32_t
+idx	task_manager.c	/^  int idx;$/;"	m	struct:__anon4ebab0a30108	typeref:typename:int	file:
+index	task_manager.h	/^  atomic_uint_fast64_t index;$/;"	m	struct:__anon4ebab0a80108	typeref:typename:atomic_uint_fast64_t
+init_not_q	notification_queue.c	/^void init_not_q(not_q_t* q)$/;"	f	typeref:typename:void
+init_seq_ring_task	seq_ring_task.c	/^void init_seq_ring_task(seq_ring_task_t* r)$/;"	f	typeref:typename:void
+init_task_manager	task_manager.c	/^void init_task_manager(task_manager_t* man, uint32_t num_threads)$/;"	f	typeref:typename:void
+len_thr	task_manager.h	/^  size_t len_thr;$/;"	m	struct:__anon4ebab0a80108	typeref:typename:size_t
+main	main.c	/^int main()$/;"	f	typeref:typename:int
+man	task_manager.c	/^  task_manager_t* man;$/;"	m	struct:__anon4ebab0a30108	typeref:typename:task_manager_t *	file:
+mask	seq_ring_task.c	/^uint32_t mask(uint32_t cap, uint32_t val)$/;"	f	typeref:typename:uint32_t	file:
+mtx	notification_queue.h	/^  pthread_mutex_t mtx;$/;"	m	struct:__anon6b9af2860108	typeref:typename:pthread_mutex_t
+naive_fibonnacci	main.c	/^int64_t naive_fibonnacci(int64_t a)$/;"	f	typeref:typename:int64_t	file:
+not_q_t	notification_queue.h	/^} not_q_t;$/;"	t	typeref:struct:__anon6b9af2860108
+num_task	task_manager.h	/^  atomic_uint_fast64_t num_task;$/;"	m	struct:__anon4ebab0a80108	typeref:typename:atomic_uint_fast64_t
+pair_t	main.c	/^} pair_t;$/;"	t	typeref:struct:__anon0d38083b0108	file:
+pop_not_q	notification_queue.c	/^bool pop_not_q(not_q_t* q, ret_try_t* out)$/;"	f	typeref:typename:bool
+pop_seq_ring_task	seq_ring_task.c	/^task_t pop_seq_ring_task(seq_ring_task_t* r )$/;"	f	typeref:typename:task_t
+push_back_seq_ring_task	seq_ring_task.c	/^void push_back_seq_ring_task(seq_ring_task_t* r, task_t t)$/;"	f	typeref:typename:void
+push_not_q	notification_queue.c	/^void push_not_q(not_q_t* q, task_t t)$/;"	f	typeref:typename:void
+q_arr	task_manager.h	/^  not_q_t* q_arr;$/;"	m	struct:__anon4ebab0a80108	typeref:typename:not_q_t *
+r	notification_queue.h	/^  seq_ring_task_t r;$/;"	m	struct:__anon6b9af2860108	typeref:typename:seq_ring_task_t
+ret_try_t	notification_queue.h	/^} ret_try_t;$/;"	t	typeref:struct:__anon6b9af2860208
+seq_free_func	seq_ring_task.h	/^typedef void (*seq_free_func)(task_t*); $/;"	t	typeref:typename:void (*)(task_t *)
+seq_ring_buf_s	seq_ring_task.h	/^typedef struct seq_ring_buf_s$/;"	s
+seq_ring_task_t	seq_ring_task.h	/^} seq_ring_task_t;$/;"	t	typeref:struct:seq_ring_buf_s
+size_seq_ring_task	seq_ring_task.c	/^size_t size_seq_ring_task(seq_ring_task_t* r)$/;"	f	typeref:typename:size_t
+success	notification_queue.h	/^  bool success;$/;"	m	struct:__anon6b9af2860208	typeref:typename:bool
+t	notification_queue.h	/^  task_t t;$/;"	m	struct:__anon6b9af2860208	typeref:typename:task_t
+t_arr	task_manager.h	/^  pthread_t* t_arr;$/;"	m	struct:__anon4ebab0a80108	typeref:typename:pthread_t *
+tail	seq_ring_task.h	/^  uint32_t tail;$/;"	m	struct:seq_ring_buf_s	typeref:typename:uint32_t
+task_manager_t	task_manager.h	/^} task_manager_t;$/;"	t	typeref:struct:__anon4ebab0a80108
+task_t	task.h	/^} task_t;$/;"	t	typeref:struct:__anon1d9193ae0108
+task_thread_args_t	task_manager.c	/^} task_thread_args_t;$/;"	t	typeref:struct:__anon4ebab0a30108	file:
+time	main.c	/^  int64_t time;$/;"	m	struct:__anon0d38083b0108	typeref:typename:int64_t	file:
+time_now_us	main.c	/^int64_t time_now_us(void)$/;"	f	typeref:typename:int64_t	file:
+try_pop_not_q	notification_queue.c	/^ret_try_t try_pop_not_q(not_q_t* q)$/;"	f	typeref:typename:ret_try_t
+try_push_not_q	notification_queue.c	/^bool try_push_not_q(not_q_t* q, task_t t)$/;"	f	typeref:typename:bool
+wait_all_task_manager	task_manager.c	/^void wait_all_task_manager(task_manager_t* man)$/;"	f	typeref:typename:void
+wait_cv	task_manager.h	/^  pthread_cond_t  wait_cv; $/;"	m	struct:__anon4ebab0a80108	typeref:typename:pthread_cond_t
+wait_mtx	task_manager.h	/^  pthread_mutex_t wait_mtx;$/;"	m	struct:__anon4ebab0a80108	typeref:typename:pthread_mutex_t
+waiting	task_manager.h	/^  _Atomic bool waiting;$/;"	m	struct:__anon4ebab0a80108	typeref:typename:_Atomic bool
+worker_thread	task_manager.c	/^void* worker_thread(void* arg)$/;"	f	typeref:typename:void *	file:

@@ -1,0 +1,173 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/mir/workspace/thread_pools/thread_pool_oai/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	/50f60b84/
+API details	thread-pool.md	/^## API details$/;"	s	chapter:Jobs
+API details	thread-pool.md	/^## API details$/;"	s	chapter:Queues of jobs (`FIFO`)
+API details	thread-pool.md	/^## API details$/;"	s	chapter:Thread pools
+Abort	thread-pool.md	/^## Abort$/;"	s	chapter:Thread pools
+Adding jobs	thread-pool.md	/^## Adding jobs$/;"	s	chapter:Thread pools
+FIFO queue abort	thread-pool.md	/^## FIFO queue abort$/;"	s	chapter:Queues of jobs (`FIFO`)
+Initialization	thread-pool.md	/^## Initialization$/;"	s	chapter:Thread pools
+Jobs	thread-pool.md	/^# Jobs$/;"	c
+Low level: fast and simple, but not thread-safe	thread-pool.md	/^## Low level: fast and simple, but not thread-safe$/;"	s	chapter:Queues of jobs (`FIFO`)
+MAX_COMMAND	system.c	/^#define MAX_COMMAND /;"	d	file:
+NotifiedFifoData	thread-pool.h	/^static inline void *NotifiedFifoData(notifiedFIFO_elt_t *elt) {$/;"	f	typeref:typename:void *
+OAI_PRIORITY_RT	system.c	/^#define OAI_PRIORITY_RT /;"	d	file:
+OAI_PRIORITY_RT	system.h	/^#define OAI_PRIORITY_RT /;"	d
+OAI_PRIORITY_RT	thread-pool.c	/^#define OAI_PRIORITY_RT /;"	d	file:
+OAI_PRIORITY_RT_LOW	system.c	/^#define OAI_PRIORITY_RT_LOW /;"	d	file:
+OAI_PRIORITY_RT_LOW	system.h	/^#define OAI_PRIORITY_RT_LOW /;"	d
+OAI_PRIORITY_RT_LOW	thread-pool.c	/^#define OAI_PRIORITY_RT_LOW /;"	d	file:
+OAI_PRIORITY_RT_MAX	system.c	/^#define OAI_PRIORITY_RT_MAX /;"	d	file:
+OAI_PRIORITY_RT_MAX	system.h	/^#define OAI_PRIORITY_RT_MAX /;"	d
+OAI_PRIORITY_RT_MAX	thread-pool.c	/^#define OAI_PRIORITY_RT_MAX /;"	d	file:
+Performance measurements	thread-pool.md	/^## Performance measurements$/;"	s	chapter:Thread pools
+Queues of jobs (`FIFO`)	thread-pool.md	/^# Queues of jobs (`FIFO`)$/;"	c
+SCHED_OAI	system.c	/^#define SCHED_OAI /;"	d	file:
+SCHED_OAI	system.h	/^#define SCHED_OAI /;"	d
+SCHED_OAI	thread-pool.c	/^#define SCHED_OAI /;"	d	file:
+SEP	measurement_display.c	/^#define SEP /;"	d	file:
+THREADINIT	thread-pool.h	/^  #define THREADINIT /;"	d
+THREAD_POOL_H	thread-pool.h	/^#define THREAD_POOL_H$/;"	d
+Thread pool	thread-pool.md	/^# Thread pool$/;"	c
+Thread pools	thread-pool.md	/^# Thread pools$/;"	c
+USE_SLEEP	thread-pool.h	/^#define USE_SLEEP /;"	d
+_GNU_SOURCE	system.c	/^#define _GNU_SOURCE$/;"	d	file:
+_GNU_SOURCE	thread-pool.c	/^#define _GNU_SOURCE$/;"	d	file:
+_SYSTEM_H_OAI_	system.h	/^#define _SYSTEM_H_OAI_$/;"	d
+__anon0d38083b0108	main.c	/^typedef struct{$/;"	s	file:
+`int abortNotifiedFIFOJob(notifiedFIFO_t *nf, uint64_t key)`	thread-pool.md	/^### `int abortNotifiedFIFOJob(notifiedFIFO_t *nf, uint64_t key)`$/;"	S	section:Queues of jobs (`FIFO`)""API details
+`int abortTpool(tpool_t *t)`	thread-pool.md	/^### `int abortTpool(tpool_t *t)`$/;"	S	section:Thread pools""API details
+`int abortTpoolJob(tpool_t *t, uint64_t key)`	thread-pool.md	/^### `int abortTpoolJob(tpool_t *t, uint64_t key)`$/;"	S	section:Thread pools""API details
+`notifiedFIFO_elt_t *newNotifiedFIFO_elt(int size, uint64_t key, notifiedFIFO_t *reponseFifo, void (*processingFunc)(void *))`	thread-pool.md	/^### `notifiedFIFO_elt_t *newNotifiedFIFO_elt(int size, uint64_t key, notifiedFIFO_t *reponseFifo/;"	S	section:Jobs""API details
+`notifiedFIFO_elt_t *pollNotifiedFIFO(notifiedFIFO_t *nf)`	thread-pool.md	/^### `notifiedFIFO_elt_t *pollNotifiedFIFO(notifiedFIFO_t *nf)`$/;"	S	section:Queues of jobs (`FIFO`)""API details
+`notifiedFIFO_elt_t *pullNotifiedFIFO(notifiedFIFO_t *nf)`	thread-pool.md	/^### `notifiedFIFO_elt_t *pullNotifiedFIFO(notifiedFIFO_t *nf)`$/;"	S	section:Queues of jobs (`FIFO`)""API details
+`notifiedFIFO_elt_t *pullNotifiedFIFO_nothreadSafe(notifiedFIFO_t *nf)`	thread-pool.md	/^### `notifiedFIFO_elt_t *pullNotifiedFIFO_nothreadSafe(notifiedFIFO_t *nf)`$/;"	S	section:Queues of jobs (`FIFO`)""API details
+`notifiedFIFO_elt_t *pullTpool(notifiedFIFO_t *responseFifo, tpool_t *t)`	thread-pool.md	/^### `notifiedFIFO_elt_t *pullTpool(notifiedFIFO_t *responseFifo, tpool_t *t)`$/;"	S	section:Thread pools""API details
+`notifiedFIFO_elt_t *tryPullTpool(notifiedFIFO_t *responseFifo, tpool_t *t)`	thread-pool.md	/^### `notifiedFIFO_elt_t *tryPullTpool(notifiedFIFO_t *responseFifo, tpool_t *t)`$/;"	S	section:Thread pools""API details
+`void *NotifiedFifoData(notifiedFIFO_elt_t *elt)`	thread-pool.md	/^### `void *NotifiedFifoData(notifiedFIFO_elt_t *elt)`$/;"	S	section:Jobs""API details
+`void abortNotifiedFIFO(notifiedFIFO_t *nf)`	thread-pool.md	/^### `void abortNotifiedFIFO(notifiedFIFO_t *nf)`$/;"	S	section:Queues of jobs (`FIFO`)""API details
+`void delNotifiedFIFO_elt(notifiedFIFO_elt_t *elt)`	thread-pool.md	/^### `void delNotifiedFIFO_elt(notifiedFIFO_elt_t *elt)`$/;"	S	section:Jobs""API details
+`void initNamedTpool(char *params, tpool_t *pool, bool performanceMeas, char *name)`	thread-pool.md	/^### `void initNamedTpool(char *params, tpool_t *pool, bool performanceMeas, char *name)`$/;"	S	section:Thread pools""API details
+`void initNotifiedFIFO(notifiedFIFO_t *nf)`	thread-pool.md	/^### `void initNotifiedFIFO(notifiedFIFO_t *nf)`$/;"	S	section:Queues of jobs (`FIFO`)""API details
+`void initNotifiedFIFO_nothreadSafe(notifiedFIFO_t *nf)`	thread-pool.md	/^### `void initNotifiedFIFO_nothreadSafe(notifiedFIFO_t *nf)`$/;"	S	section:Queues of jobs (`FIFO`)""API details
+`void initTpool(char *params, tpool_t *pool, bool performanceMeas)`	thread-pool.md	/^### `void initTpool(char *params, tpool_t *pool, bool performanceMeas)`$/;"	S	section:Thread pools""API details
+`void pushNotifiedFIFO(notifiedFIFO_t *nf, notifiedFIFO_elt_t *msg)`	thread-pool.md	/^### `void pushNotifiedFIFO(notifiedFIFO_t *nf, notifiedFIFO_elt_t *msg)`$/;"	S	section:Queues of jobs (`FIFO`)""API details
+`void pushNotifiedFIFO_nothreadSafe(notifiedFIFO_t *nf, notifiedFIFO_elt_t *msg)`	thread-pool.md	/^### `void pushNotifiedFIFO_nothreadSafe(notifiedFIFO_t *nf, notifiedFIFO_elt_t *msg)`$/;"	S	section:Queues of jobs (`FIFO`)""API details
+`void pushTpool(tpool_t *t, notifiedFIFO_elt_t *msg)`	thread-pool.md	/^### `void pushTpool(tpool_t *t, notifiedFIFO_elt_t *msg)`$/;"	S	section:Thread pools""API details
+a	main.c	/^  int64_t a;$/;"	m	struct:__anon0d38083b0108	typeref:typename:int64_t	file:
+abortFIFO	thread-pool.h	/^  bool abortFIFO; \/\/ if set, the FIFO always returns NULL -> abort condition$/;"	m	struct:notifiedFIFO_s	typeref:typename:bool
+abortNotifiedFIFO	thread-pool.h	/^static inline void abortNotifiedFIFO(notifiedFIFO_t *nf) {$/;"	f	typeref:typename:void
+abortNotifiedFIFOJob	thread-pool.h	/^static inline int abortNotifiedFIFOJob(notifiedFIFO_t *nf, uint64_t key) {$/;"	f	typeref:typename:int
+abortTpool	thread-pool.h	/^static inline int abortTpool(tpool_t *t) {$/;"	f	typeref:typename:int
+abortTpoolJob	thread-pool.h	/^static inline int abortTpoolJob(tpool_t *t, uint64_t key) {$/;"	f	typeref:typename:int
+acc	main.c	/^int acc = 0;$/;"	v	typeref:typename:__thread int	file:
+activated	thread-pool.h	/^  bool activated;$/;"	m	struct:thread_pool	typeref:typename:bool
+allthreads	thread-pool.h	/^  struct one_thread *allthreads;$/;"	m	struct:thread_pool	typeref:struct:one_thread *
+background_system	system.c	/^int background_system(char *command) {$/;"	f	typeref:typename:int
+background_system_process	system.c	/^static void background_system_process(void) {$/;"	f	typeref:typename:void	file:
+checkIfFedoraDistribution	system.c	/^int checkIfFedoraDistribution(void) {$/;"	f	typeref:typename:int
+checkIfGenericKernelOnFedora	system.c	/^int checkIfGenericKernelOnFedora(void) {$/;"	f	typeref:typename:int
+checkIfInsideContainer	system.c	/^int checkIfInsideContainer(void) {$/;"	f	typeref:typename:int
+command_pipe_read	system.c	/^static int command_pipe_read;$/;"	v	typeref:typename:int	file:
+command_pipe_write	system.c	/^static int command_pipe_write;$/;"	v	typeref:typename:int	file:
+condbroadcast	thread-pool.h	/^#define condbroadcast(/;"	d
+condinit	thread-pool.h	/^#define condinit(/;"	d
+condsignal	thread-pool.h	/^#define condsignal(/;"	d
+condwait	thread-pool.h	/^#define condwait(/;"	d
+coreID	thread-pool.h	/^  int coreID;$/;"	m	struct:one_thread	typeref:typename:int
+cpuCyclesMicroSec	measurement_display.c	/^uint64_t cpuCyclesMicroSec;$/;"	v	typeref:typename:uint64_t
+cpuCyclesMicroSec	thread-pool.h	/^  uint64_t cpuCyclesMicroSec;$/;"	m	struct:thread_pool	typeref:typename:uint64_t
+cpuid	thread-pool.h	/^  int      cpuid;$/;"	m	struct:notifiedFIFO_elt_s	typeref:typename:int
+delNotifiedFIFO_elt	thread-pool.h	/^static inline void delNotifiedFIFO_elt(notifiedFIFO_elt_t *elt) {$/;"	f	typeref:typename:void
+displayList	thread-pool.c	/^void displayList(notifiedFIFO_t *nf) {$/;"	f	typeref:typename:void
+do_work	main.c	/^void do_work(void* arg)$/;"	f	typeref:typename:void	file:
+dropJob	thread-pool.h	/^  bool dropJob;$/;"	m	struct:one_thread	typeref:typename:bool
+dummyKeepReadingTraceFd	thread-pool.h	/^  int dummyKeepReadingTraceFd;$/;"	m	struct:thread_pool	typeref:typename:int
+exit_function	thread-pool.c	/^void exit_function(const char *file, const char *function, const int line, const char *s) {$/;"	f	typeref:typename:void
+id	thread-pool.c	/^  int id;$/;"	m	struct:testData	typeref:typename:int	file:
+id	thread-pool.h	/^  int id;$/;"	m	struct:one_thread	typeref:typename:int
+inF	thread-pool.h	/^  notifiedFIFO_elt_t *inF;$/;"	m	struct:notifiedFIFO_s	typeref:typename:notifiedFIFO_elt_t *
+incomingFifo	thread-pool.h	/^  notifiedFIFO_t incomingFifo;$/;"	m	struct:thread_pool	typeref:typename:notifiedFIFO_t
+initFloatingCoresTpool	thread-pool.c	/^void initFloatingCoresTpool(int nbThreads,tpool_t *pool, bool performanceMeas, char *name) {$/;"	f	typeref:typename:void
+initNamedTpool	thread-pool.c	/^void initNamedTpool(char *params,tpool_t *pool, bool performanceMeas, char *name) {$/;"	f	typeref:typename:void
+initNotifiedFIFO	thread-pool.h	/^static inline void initNotifiedFIFO(notifiedFIFO_t *nf) {$/;"	f	typeref:typename:void
+initNotifiedFIFO_nothreadSafe	thread-pool.h	/^static inline void initNotifiedFIFO_nothreadSafe(notifiedFIFO_t *nf) {$/;"	f	typeref:typename:void
+initTpool	thread-pool.h	/^#define  initTpool(/;"	d
+key	thread-pool.h	/^  uint64_t key; \/\/To filter out elements$/;"	m	struct:notifiedFIFO_elt_s	typeref:typename:uint64_t
+license	thread-pool.md	/^## license$/;"	s	chapter:Thread pool
+lock	system.c	/^static pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;$/;"	v	typeref:typename:pthread_mutex_t	file:
+lockF	thread-pool.h	/^  pthread_mutex_t lockF;$/;"	m	struct:notifiedFIFO_s	typeref:typename:pthread_mutex_t
+lock_system	system.c	/^static void lock_system(void) {$/;"	f	typeref:typename:void	file:
+main	main.c	/^int main()$/;"	f	typeref:typename:int
+main	measurement_display.c	/^int main(int argc, char *argv[]) {$/;"	f	typeref:typename:int
+main	thread-pool.c	/^int main() {$/;"	f	typeref:typename:int
+malloced	thread-pool.h	/^  bool malloced;$/;"	m	struct:notifiedFIFO_elt_s	typeref:typename:bool
+measurePerf	thread-pool.h	/^  bool measurePerf;$/;"	m	struct:thread_pool	typeref:typename:bool
+module_initialized	system.c	/^static int module_initialized = 0;$/;"	v	typeref:typename:int	file:
+msgData	thread-pool.h	/^  void *msgData;$/;"	m	struct:notifiedFIFO_elt_s	typeref:typename:void *
+mutexinit	thread-pool.h	/^#define mutexinit(/;"	d
+mutexlock	thread-pool.h	/^  #define mutexlock(/;"	d
+mutexlock	thread-pool.h	/^#define mutexlock(/;"	d
+mutextrylock	thread-pool.h	/^#define mutextrylock(/;"	d
+mutexunlock	thread-pool.h	/^#define mutexunlock(/;"	d
+naive_fibonnacci	main.c	/^int64_t naive_fibonnacci(int64_t a)$/;"	f	typeref:typename:int64_t	file:
+name	thread-pool.h	/^  char name[256];$/;"	m	struct:one_thread	typeref:typename:char[256]
+nbThreads	thread-pool.h	/^  int nbThreads;$/;"	m	struct:thread_pool	typeref:typename:int
+newNotifiedFIFO_elt	thread-pool.h	/^static inline notifiedFIFO_elt_t *newNotifiedFIFO_elt(int size,$/;"	f	typeref:typename:notifiedFIFO_elt_t *
+next	thread-pool.h	/^  struct notifiedFIFO_elt_s *next;$/;"	m	struct:notifiedFIFO_elt_s	typeref:struct:notifiedFIFO_elt_s *
+next	thread-pool.h	/^  struct one_thread *next;$/;"	m	struct:one_thread	typeref:struct:one_thread *
+notifF	thread-pool.h	/^  pthread_cond_t  notifF;$/;"	m	struct:notifiedFIFO_s	typeref:typename:pthread_cond_t
+notifiedFIFO_elt_s	thread-pool.h	/^typedef struct notifiedFIFO_elt_s {$/;"	s
+notifiedFIFO_elt_t	thread-pool.h	/^}  notifiedFIFO_elt_t;$/;"	t	typeref:struct:notifiedFIFO_elt_s
+notifiedFIFO_s	thread-pool.h	/^typedef struct notifiedFIFO_s {$/;"	s
+notifiedFIFO_t	thread-pool.h	/^} notifiedFIFO_t;$/;"	t	typeref:struct:notifiedFIFO_s
+oai_exit	thread-pool.c	/^volatile int oai_exit=0;$/;"	v	typeref:typename:volatile int
+one_thread	thread-pool.c	/^void *one_thread(void *arg) {$/;"	f	typeref:typename:void *
+one_thread	thread-pool.h	/^struct one_thread {$/;"	s
+outF	thread-pool.h	/^  notifiedFIFO_elt_t *outF;$/;"	m	struct:notifiedFIFO_s	typeref:typename:notifiedFIFO_elt_t *
+pair_t	main.c	/^} pair_t;$/;"	t	typeref:struct:__anon0d38083b0108	file:
+pollNotifiedFIFO	thread-pool.h	/^static inline  notifiedFIFO_elt_t *pollNotifiedFIFO(notifiedFIFO_t *nf) {$/;"	f	typeref:typename:notifiedFIFO_elt_t *
+pool	thread-pool.h	/^  struct thread_pool *pool;$/;"	m	struct:one_thread	typeref:struct:thread_pool *
+processing	thread-pool.c	/^void processing(void *arg) {$/;"	f	typeref:typename:void
+processingFunc	thread-pool.h	/^  void (*processingFunc)(void *);$/;"	m	struct:notifiedFIFO_elt_s	typeref:typename:void (*)(void *)
+pullNotifiedFIFO	thread-pool.h	/^static inline  notifiedFIFO_elt_t *pullNotifiedFIFO(notifiedFIFO_t *nf) {$/;"	f	typeref:typename:notifiedFIFO_elt_t *
+pullNotifiedFIFO_nothreadSafe	thread-pool.h	/^static inline  notifiedFIFO_elt_t *pullNotifiedFIFO_nothreadSafe(notifiedFIFO_t *nf) {$/;"	f	typeref:typename:notifiedFIFO_elt_t *
+pullNotifiedFifoRemember	thread-pool.c	/^static inline  notifiedFIFO_elt_t *pullNotifiedFifoRemember( notifiedFIFO_t *nf, struct one_thre/;"	f	typeref:typename:notifiedFIFO_elt_t *	file:
+pullTpool	thread-pool.h	/^static inline notifiedFIFO_elt_t *pullTpool(notifiedFIFO_t *responseFifo, tpool_t *t) {$/;"	f	typeref:typename:notifiedFIFO_elt_t *
+pushNotifiedFIFO	thread-pool.h	/^static inline void pushNotifiedFIFO(notifiedFIFO_t *nf, notifiedFIFO_elt_t *msg) {$/;"	f	typeref:typename:void
+pushNotifiedFIFO_nothreadSafe	thread-pool.h	/^static inline void pushNotifiedFIFO_nothreadSafe(notifiedFIFO_t *nf, notifiedFIFO_elt_t *msg) {$/;"	f	typeref:typename:void
+pushTpool	thread-pool.h	/^static inline void pushTpool(tpool_t *t, notifiedFIFO_elt_t *msg) {$/;"	f	typeref:typename:void
+read_pipe	system.c	/^static void read_pipe(int p, char *b, int size) {$/;"	f	typeref:typename:void	file:
+reponseFifo	thread-pool.h	/^  struct notifiedFIFO_s *reponseFifo;$/;"	m	struct:notifiedFIFO_elt_s	typeref:struct:notifiedFIFO_s *
+result_pipe_read	system.c	/^static int result_pipe_read;$/;"	v	typeref:typename:int	file:
+result_pipe_write	system.c	/^static int result_pipe_write;$/;"	v	typeref:typename:int	file:
+rt_sleep_ns	system.c	/^int rt_sleep_ns (uint64_t x)$/;"	f	typeref:typename:int
+runningOnKey	thread-pool.h	/^  uint64_t runningOnKey;$/;"	m	struct:one_thread	typeref:typename:uint64_t
+set_latency_target	system.c	/^void set_latency_target(void) {$/;"	f	typeref:typename:void
+sleepTime	thread-pool.c	/^  int sleepTime;$/;"	m	struct:testData	typeref:typename:int	file:
+start_background_system	system.c	/^void start_background_system(void) {$/;"	f	typeref:typename:void
+terminate	thread-pool.h	/^  bool terminate;$/;"	m	struct:one_thread	typeref:typename:bool
+testData	thread-pool.c	/^struct testData {$/;"	s	file:
+thread-pool-test	Makefile	/^thread-pool-test: thread-pool.c thread-pool.h$/;"	t
+threadCreate	system.c	/^void threadCreate(pthread_t* t, void * (*func)(void*), void * param, char* name, int affinity, i/;"	f	typeref:typename:void
+threadID	thread-pool.h	/^  pthread_t  threadID;$/;"	m	struct:one_thread	typeref:typename:pthread_t
+thread_pool	thread-pool.h	/^typedef struct thread_pool {$/;"	s
+thread_top_init	system.c	/^void thread_top_init(char *thread_name,$/;"	f	typeref:typename:void
+time	main.c	/^  int64_t time;$/;"	m	struct:__anon0d38083b0108	typeref:typename:int64_t	file:
+time_now_us	main.c	/^int64_t time_now_us(void)$/;"	f	typeref:typename:int64_t	file:
+tpool_nbthreads	thread-pool.h	/^#define tpool_nbthreads(/;"	d
+tpool_t	thread-pool.h	/^} tpool_t;$/;"	t	typeref:struct:thread_pool
+traceFd	thread-pool.h	/^  int traceFd;$/;"	m	struct:thread_pool	typeref:typename:int
+tryPullTpool	thread-pool.h	/^static inline notifiedFIFO_elt_t *tryPullTpool(notifiedFIFO_t *responseFifo, tpool_t *t) {$/;"	f	typeref:typename:notifiedFIFO_elt_t *
+txt	thread-pool.c	/^  char txt[30];$/;"	m	struct:testData	typeref:typename:char[30]	file:
+unlock_system	system.c	/^static void unlock_system(void) {$/;"	f	typeref:typename:void	file:
+write_pipe	system.c	/^static void write_pipe(int p, char *b, int size) {$/;"	f	typeref:typename:void	file:

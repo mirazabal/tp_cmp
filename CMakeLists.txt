@@ -1,7 +1,11 @@
 cmake_minimum_required (VERSION 3.0)
 project (thread_pools_analysis)
 
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c11 -march=native -flto -fopenmp -O3 -DNDEBUG")
+#-std=c11 requests strict POSIX compliance; no extensions like pthread_rwlock_t needed by libuv
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=gnu11 -march=native -flto -fopenmp -O3 -DNDEBUG")
+
+
+
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -march=native -O3 -flto -fopenmp -DNDEBUG")
 
 
@@ -80,4 +84,24 @@ add_executable(glib_tp
 include_directories(glib_tp /usr/lib/x86_64-linux-gnu/glib-2.0/include/)
 include_directories(glib_tp /usr/include/glib-2.0/)
 target_link_libraries(glib_tp glib-2.0)
+
+add_executable(tbb_tp 
+    "common_task.c"
+    "tbb/main.cpp"
+    ) 
+
+target_link_libraries(tbb_tp tbb)
+
+
+add_executable(boost_tp 
+    "common_task.c"
+    "boost/main.cpp"
+    ) 
+
+add_executable(libuv_tp 
+    "common_task.c"
+    "libuv/main.c"
+    ) 
+
+target_link_libraries(libuv_tp -l:libuv_a.a )
 

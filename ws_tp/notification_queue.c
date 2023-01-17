@@ -111,21 +111,36 @@ bool pop_not_q(not_q_t* q, ret_try_t* out)
   assert(q != NULL);
   assert(out != NULL);
 
-  pthread_mutex_lock(&q->mtx);
+  int rc = pthread_mutex_lock(&q->mtx);
+  assert(rc == 0);
   assert(q->done == 0 || q->done ==1);
 
+label:
   while(size_seq_ring_task(&q->r) == 0 && q->done == 0)
     pthread_cond_wait(&q->cv , &q->mtx);
 
   if(q->done == 1){
-    int rc = pthread_mutex_unlock(&q->mtx);
+    int const rc = pthread_mutex_unlock(&q->mtx);
     assert(rc == 0);
     return false;
   }
 
+  if(q->spin){
+    int rc = pthread_mutex_unlock(&q->mtx);
+    assert(rc == 0);
+
+    lock_spinlock(&q->sl);
+
+    rc = pthread_mutex_lock(&q->mtx);
+    assert(rc == 0);
+
+    if(size_seq_ring_task(&q->r) == 0)
+      goto label;
+  }
+
   out->t = pop_seq_ring_task(&q->r);
 
-  int rc = pthread_mutex_unlock(&q->mtx);
+  rc = pthread_mutex_unlock(&q->mtx);
   assert(rc == 0);
 
   return true;
@@ -145,5 +160,21 @@ void done_not_q(not_q_t* q)
 
   rc = pthread_cond_signal(&q->cv);
   assert(rc == 0);
+}
+
+void wake_spin_not_q(not_q_t* q)
+{
+  assert(q != NULL);
+
+  q->spin = true;
+  pthread_cond_signal(&q->cv);
+}
+
+void stop_spin_not_q(not_q_t* q)
+{
+  assert(q != NULL);
+
+  unlock_spinlock(&q->sl);
+  q->spin = false;
 }
 

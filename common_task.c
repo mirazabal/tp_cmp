@@ -2,14 +2,21 @@
 
 #include "common_task.h"
 
-
 #include <assert.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include <pthread.h>
 #include <unistd.h>
 #include <sys/syscall.h>
 #include <stdlib.h>
 #include <time.h>
+
+pair_t fill_pair(int64_t a)
+{
+//  pair_t tmp = {.a = a%3, .time = 0};
+  pair_t tmp = {.a = 0, .time = 0};
+  return tmp;
+}
 
 int64_t time_now_us(void)
 {
@@ -44,10 +51,23 @@ int64_t naive_fibonnacci(int64_t a)
   return naive_fibonnacci(a-1) + naive_fibonnacci(a-2);
 }
 
+//static _Thread_local int64_t counter = 0;
+
 void do_work(void* arg)
 {
   pair_t* a = (pair_t*)arg;
+ 
+//  naive_fibonnacci(17 + a->a);
   naive_fibonnacci(19 + a->a);
+//  for(int i = 0; i < a->a; ++i){
+//    naive_fibonnacci(19);
+//  }
+
   a->time = time_now_us();
+
+//  if(counter%4096 == 0)
+//    printf("%ld \n ", a->time);
+
+//  counter += 1;
 }
 

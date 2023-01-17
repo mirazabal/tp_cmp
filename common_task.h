@@ -15,9 +15,14 @@ typedef struct{
   int64_t time;
 } pair_t;
 
+pair_t fill_pair(int64_t a);
+
 int64_t time_now_us(void);
 
 void do_work(void* arg);
+
+
+
 
 #ifdef __cplusplus
 }

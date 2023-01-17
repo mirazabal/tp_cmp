@@ -34,11 +34,17 @@ void* worker_thread(void* arg)
     if(ret.success == false && pop_not_q(&man->q_arr[idx], &ret) == false)
       break;
 
+    //int64_t now = time_now_us();
+    //printf("Before func %ld id %lu \n", now , pthread_self() );
     ret.t.func(ret.t.args); 
-    man->num_task -= 1;
+    //printf("After func %ld id %lu elapsed %ld \n", time_now_us(), pthread_self(), time_now_us()-now );
 
-    if( man->num_task == 0 && man->waiting == true )
-      pthread_cond_signal(&man->wait_cv);
+    atomic_fetch_sub(&man->num_task, 1); 
+
+    if(man->num_task == 0 && man->waiting != 0){
+      man->waiting == 1 ? pthread_cond_signal(&man->wait_cv) : unlock_spinlock(&man->spin);
+    }
+
   }
 
   free(args);
@@ -73,8 +79,7 @@ void init_task_manager(task_manager_t* man, uint32_t num_threads)
   man->index = 0;
 
   // Waiting all
-
-  man->waiting = false;
+  man->waiting = 0;
 
   pthread_mutexattr_t attr = {0};
 #ifdef _DEBUG
@@ -121,16 +126,16 @@ void async_task_manager(task_manager_t* man, task_t t)
   //assert(t.args != NULL);
 
   uint64_t const index = man->index++;
-  const uint32_t len_thr = man->len_thr;
-  for(uint32_t i = 0; i < len_thr ; ++i){
+  const int32_t len_thr = man->len_thr;
+  for(int32_t i = 0; i < len_thr ; ++i){
     if(try_push_not_q(&man->q_arr[(i+index) % len_thr], t)){
-      man->num_task +=1;
+      atomic_fetch_add(&man->num_task, 1); 
       return;
     }
   }
 
   push_not_q(&man->q_arr[index%len_thr], t);
-  man->num_task +=1;
+  atomic_fetch_add(&man->num_task, 1); 
 }
 
 void wait_all_task_manager(task_manager_t* man)
@@ -138,12 +143,41 @@ void wait_all_task_manager(task_manager_t* man)
   assert(man != NULL);
 
   pthread_mutex_lock(&man->wait_mtx);
-  man->waiting = true;
+  man->waiting = 1;
 
-  while(man->num_task != 0) 
-    pthread_cond_wait(&man->wait_cv , &man->wait_mtx);
+  while(man->num_task > 0) 
+    pthread_cond_wait(&man->wait_cv, &man->wait_mtx);
 
-  man->waiting = false;
+  man->waiting = 0;
   pthread_mutex_unlock(&man->wait_mtx);
+}
+
+void wait_all_spin_task_manager(task_manager_t* man)
+{
+  assert(man != NULL);
+
+  man->waiting = 2;
+  lock_spinlock(&man->spin);
+  man->waiting = 0;
+}
+
+void wake_and_spin_task_manager(task_manager_t* man)
+{
+  assert(man != NULL);
+
+  const int32_t len_thr = man->len_thr;
+  for(int i = 0; i < len_thr; ++i){
+     wake_spin_not_q(&man->q_arr[i]);
+  }
+}
+
+void stop_spin_task_manager(task_manager_t* man)
+{
+  assert(man != NULL);
+
+  const int32_t len_thr = man->len_thr;
+  for(int i =0; i < len_thr; ++i){
+    stop_spin_not_q(&man->q_arr[i]);
+  }
 }
 

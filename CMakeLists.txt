@@ -51,6 +51,7 @@ add_executable(ws_tp
     "ws_tp/notification_queue.c"
     "ws_tp/seq_ring_task.c"
     "ws_tp/task_manager.c"
+    "ws_tp/spinlock.c"
   )
 
 add_executable(oai_tp 

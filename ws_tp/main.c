@@ -11,15 +11,16 @@ int main()
   pair_t* arr = calloc(NUM_JOBS, sizeof(pair_t));
   assert(arr != NULL);
 
+//  wake_and_spin_task_manager(&man);
+
   for(int i = 0; i < NUM_JOBS; ++i){
-    pair_t* pa = &arr[i]; 
-    pa->a = 0; //i%10;
-    pa->time = 0;
-    task_t t = {.args = pa, t.func = do_work};
+    arr[i] = fill_pair(i); 
+    task_t t = {.args = &arr[i], t.func = do_work};
     async_task_manager(&man, t);
   }
 
-  wait_all_task_manager(&man); 
+//  stop_spin_task_manager(&man);
+  wait_all_spin_task_manager(&man); 
   free(arr);
   free_task_manager(&man, NULL);
 

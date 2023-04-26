@@ -3,6 +3,14 @@
 #include <assert.h> 
 #include <stdlib.h>
 
+#if defined (__i386__) || defined(__x86_64__)
+  #define pause_or_yield  __builtin_ia32_pause
+#elif __aarch64__
+  #define pause_or_yield() asm volatile("yield" ::: "memory")
+#else
+    static_assert(0!=0, "Unknown CPU architecture");
+#endif
+
 typedef struct{
   task_manager_t* man;
   int idx;
@@ -20,6 +28,7 @@ void* worker_thread(void* arg)
   uint32_t const len = man->len_thr;
   uint32_t const num_it = 2*(man->len_thr + idx); 
 
+  uint32_t acc = 0;
   for(;;){
 
     ret_try_t ret = {.success = false}; 
@@ -31,19 +40,25 @@ void* worker_thread(void* arg)
       } 
     }
 
-    if(ret.success == false && pop_not_q(&man->q_arr[idx], &ret) == false)
-      break;
+    if(ret.success == false){
+      man->num_task -= acc;
+      acc = 0;
+      if(pop_not_q(&man->q_arr[idx], &ret) == false)
+        break;
+    }
+
+    acc++;
 
     //int64_t now = time_now_us();
     //printf("Before func %ld id %lu \n", now , pthread_self() );
     ret.t.func(ret.t.args); 
     //printf("After func %ld id %lu elapsed %ld \n", time_now_us(), pthread_self(), time_now_us()-now );
 
-    atomic_fetch_sub(&man->num_task, 1); 
+//    atomic_fetch_sub(&man->num_task, 1); 
 
-    if(man->num_task == 0 && man->waiting != 0){
-      man->waiting == 1 ? pthread_cond_signal(&man->wait_cv) : unlock_spinlock(&man->spin);
-    }
+//    if(man->num_task == 0 && man->waiting != 0){
+//      man->waiting == 1 ? pthread_cond_signal(&man->wait_cv) : unlock_spinlock(&man->spin);
+//    }
 
   }
 
@@ -77,9 +92,6 @@ void init_task_manager(task_manager_t* man, uint32_t num_threads)
   }
 
   man->index = 0;
-
-  // Waiting all
-  man->waiting = 0;
 
   pthread_mutexattr_t attr = {0};
 #ifdef _DEBUG
@@ -142,42 +154,12 @@ void wait_all_task_manager(task_manager_t* man)
 {
   assert(man != NULL);
 
-  pthread_mutex_lock(&man->wait_mtx);
-  man->waiting = 1;
-
-  while(man->num_task > 0) 
-    pthread_cond_wait(&man->wait_cv, &man->wait_mtx);
-
-  man->waiting = 0;
-  pthread_mutex_unlock(&man->wait_mtx);
-}
-
-void wait_all_spin_task_manager(task_manager_t* man)
-{
-  assert(man != NULL);
-
-  man->waiting = 2;
-  lock_spinlock(&man->spin);
-  man->waiting = 0;
-}
-
-void wake_and_spin_task_manager(task_manager_t* man)
-{
-  assert(man != NULL);
-
-  const int32_t len_thr = man->len_thr;
-  for(int i = 0; i < len_thr; ++i){
-     wake_spin_not_q(&man->q_arr[i]);
+  while (atomic_load_explicit(&man->num_task, memory_order_relaxed)){
+    // Issue X86 PAUSE or ARM YIELD instruction to reduce contention between
+    // hyper-threads
+    pause_or_yield();
   }
+
 }
 
-void stop_spin_task_manager(task_manager_t* man)
-{
-  assert(man != NULL);
-
-  const int32_t len_thr = man->len_thr;
-  for(int i =0; i < len_thr; ++i){
-    stop_spin_not_q(&man->q_arr[i]);
-  }
-}
 

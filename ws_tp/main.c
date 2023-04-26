@@ -20,7 +20,7 @@ int main()
   }
 
 //  stop_spin_task_manager(&man);
-  wait_all_spin_task_manager(&man); 
+  wait_all_task_manager(&man); 
   free(arr);
   free_task_manager(&man, NULL);
 

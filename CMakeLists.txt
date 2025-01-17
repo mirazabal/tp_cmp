@@ -86,23 +86,23 @@ include_directories(glib_tp /usr/lib/x86_64-linux-gnu/glib-2.0/include/)
 include_directories(glib_tp /usr/include/glib-2.0/)
 target_link_libraries(glib_tp glib-2.0)
 
-add_executable(tbb_tp 
-    "common_task.c"
-    "tbb/main.cpp"
-    ) 
+#add_executable(tbb_tp 
+#    "common_task.c"
+#    "tbb/main.cpp"
+#    ) 
 
-target_link_libraries(tbb_tp tbb)
+#target_link_libraries(tbb_tp tbb)
 
 
-add_executable(boost_tp 
-    "common_task.c"
-    "boost/main.cpp"
-    ) 
+#add_executable(boost_tp 
+#    "common_task.c"
+#    "boost/main.cpp"
+#    ) 
 
-add_executable(libuv_tp 
-    "common_task.c"
-    "libuv/main.c"
-    ) 
+#add_executable(libuv_tp 
+#    "common_task.c"
+#    "libuv/main.c"
+#    ) 
 
-target_link_libraries(libuv_tp -l:libuv_a.a )
+#target_link_libraries(libuv_tp -l:libuv_a.a )
 

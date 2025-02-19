@@ -70,9 +70,9 @@ void push_not_q(not_q_t* q, task_t t)
 
   push_back_seq_ring_task(&q->r, t);
 
+  pthread_cond_signal(&q->cv);
   pthread_mutex_unlock(&q->mtx);
 
-  pthread_cond_signal(&q->cv);
 }
 
 ret_try_t try_pop_not_q(not_q_t* q)

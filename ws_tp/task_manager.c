@@ -2,6 +2,7 @@
 
 #include <assert.h> 
 #include <stdlib.h>
+#include <stdio.h>
 
 #if defined (__i386__) || defined(__x86_64__)
   #define pause_or_yield  __builtin_ia32_pause
@@ -43,9 +44,16 @@ void* worker_thread(void* arg)
     if(ret.success == false){
       man->num_task -= acc;
       acc = 0;
+      if(man->num_task == 0){
+        pthread_mutex_lock(&man->wait_mtx);
+        pthread_cond_signal(&man->wait_cv); 
+        pthread_mutex_unlock(&man->wait_mtx);
+      }
+
       if(pop_not_q(&man->q_arr[idx], &ret) == false)
         break;
     }
+
 
     acc++;
 
@@ -54,7 +62,8 @@ void* worker_thread(void* arg)
     ret.t.func(ret.t.args); 
     //printf("After func %ld id %lu elapsed %ld \n", time_now_us(), pthread_self(), time_now_us()-now );
 
-//    atomic_fetch_sub(&man->num_task, 1); 
+    //atomic_fetch_sub(&man->num_task, 1); 
+
 
 //    if(man->num_task == 0 && man->waiting != 0){
 //      man->waiting == 1 ? pthread_cond_signal(&man->wait_cv) : unlock_spinlock(&man->spin);
@@ -92,6 +101,7 @@ void init_task_manager(task_manager_t* man, uint32_t num_threads)
   }
 
   man->index = 0;
+  man->num_task = 0;
 
   pthread_mutexattr_t attr = {0};
 #ifdef _DEBUG
@@ -154,11 +164,17 @@ void wait_all_task_manager(task_manager_t* man)
 {
   assert(man != NULL);
 
-  while (atomic_load_explicit(&man->num_task, memory_order_relaxed)){
-    // Issue X86 PAUSE or ARM YIELD instruction to reduce contention between
-    // hyper-threads
-    pause_or_yield();
+  pthread_mutex_lock(&man->wait_mtx);
+  while(man->num_task != 0){
+    pthread_cond_wait(&man->wait_cv , &man->wait_mtx);
   }
+  pthread_mutex_unlock(&man->wait_mtx);
+
+//  while (atomic_load_explicit(&man->num_task, memory_order_relaxed)){
+//    // Issue X86 PAUSE or ARM YIELD instruction to reduce contention between
+//    // hyper-threads
+//    pause_or_yield();
+//  }
 
 }
 
